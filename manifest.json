@@ -1,0 +1,31 @@
+{
+  "name": "Turntable Pro",
+  "version": "0.0.1",
+  "manifest_version": 1,
+  "description": "Embarrassed by Turntable.fm when you're at work? Turntable Pro restyles the TT interface with a clean minimalist style.",
+  "icons": { "16":"images/icon16.png",
+             "48":"images/icon48.png",
+             "128":"images/icon128.png" },
+  "permissions": [
+    "http://turntable.fm/*",
+    "https://turntable.fm/*"
+  ],
+  "content_scripts":[
+    {
+      "matches": ["http://turntable.fm/*"],
+      "exclude_globs": [
+        "http://turntable.fm/", 
+        "http://turntable.fm/lobby", 
+        "http://turntable.fm/about", 
+        "http://turntable.fm/jobs", 
+        "http://turntable.fm/privacy", 
+        "http://turntable.fm/copyright", 
+        "http://turntable.fm/terms", 
+        "http://turntable.fm/static/*"
+      ],
+      "js": ["js/inject.js"],
+      "run_at": "document_idle"
+    }
+  ]
+  
+}
